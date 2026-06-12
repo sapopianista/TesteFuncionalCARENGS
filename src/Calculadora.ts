@@ -14,4 +14,30 @@ export class Calculadora {
         }
         return n1 / n2;
     }
+
+    // 1 - Radiciação (Raiz Quadrada) com tratamento interno
+    public radiciacao(numero: number): number | null {
+        try {
+            if (numero < 0) {
+                // Não existe raiz real de número negativo
+                throw new Error("Número negativo"); 
+            }
+            return Math.sqrt(numero);
+        } catch (error) {
+            return null; // Tratamento feito dentro da classe
+        }
+    }
+
+    // 1 - Potenciação com tratamento interno
+    public potenciacao(base: number, expoente: number): number | null {
+        try {
+            if (base === 0 && expoente <= 0) {
+                // Indeterminação matemática matemática (ex: 0 elevado a 0 ou negativo)
+                throw new Error("Indeterminação matemática");
+            }
+            return Math.pow(base, expoente);
+        } catch (error) {
+            return null; // Tratamento feito dentro da classe
+        }
+    }
 }
